@@ -6,8 +6,8 @@
 template<typename T, int size>
 class TPQueue {
  private:
-  T* arr;
-  int first, last, count;
+    T* arr;
+    int first, last, count;
  public:
    TPQueue() : first(0), last(0), count(0) {
    arr = new T[size];
@@ -26,26 +26,26 @@ class TPQueue {
        throw std::string("Full");
      } else {
          int temp = last;
-	 for (int i = last; i > first; i--) {
-	   if (arr[i - 1].prior < value.prior) {
-	     temp = i - 1;
-	     arr[i % size] = arr[i - 1];
-	   }
-	 }
-	 arr[temp % size] = value;
-	 count++;
-	 last++;
-    }
-  }
-  const T& pop() {
-    if (isEmpty()) {
-      throw std::string("Empty");
-    } else {
-        count--;
-	return arr[first++ % size];
-    }
-  }
-};
+	       for (int i = last; i > first; i--) {
+	         if (arr[i - 1].prior < value.prior) {
+	           temp = i - 1;
+	           arr[i % size] = arr[i - 1];
+	         }
+	       }
+	       arr[temp % size] = value;
+	       count++;
+	       last++;
+       }
+   }
+   const T& pop() {
+     if (isEmpty()) {
+       throw std::string("Empty");
+     } else {
+         count--;
+	       return arr[first++ % size];
+     }
+   }
+ };
 
 struct SYM {
   char ch;
