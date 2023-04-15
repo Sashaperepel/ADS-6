@@ -45,7 +45,7 @@ class TPQueue {
 	  return arr[first++ % size];
       }
     }
- };
+};
 
 struct SYM {
   char ch;
