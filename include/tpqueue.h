@@ -27,15 +27,15 @@ class TPQueue {
         throw std::string("Full");
       } else {
           int temp = last;
-	  for (int i = last; i > first; i--) {
-	    if (arr[i - 1].prior < value.prior) {
-	      temp = i - 1;
-	      arr[i % size] = arr[i - 1];
-	    }
-	  }
-	  arr[temp % size] = value;
-	  count++;
-	  last++;
+          for (int i = last; i > first; i--) {
+            if (arr[i - 1].prior < value.prior) {
+              temp = i - 1;
+              arr[i % size] = arr[i - 1];
+            }
+          }
+          arr[temp % size] = value;
+          count++;
+          last++;
       }
     }
     const T& pop() {
@@ -43,7 +43,7 @@ class TPQueue {
         throw std::string("Empty");
       } else {
           count--;
-	  return arr[first++ % size];
+          return arr[first++ % size];
       }
     }
 };
